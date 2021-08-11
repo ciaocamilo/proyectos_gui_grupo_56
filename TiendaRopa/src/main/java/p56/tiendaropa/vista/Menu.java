@@ -7,17 +7,19 @@ import p56.tiendaropa.controlador.controladorCliente;
 
 public class Menu {
 
-    public void generarMenu(SqliteConnection conexionBD) {
-        String textoMenu = "Elija su opción: \n" +
+    public void generarMenu(SqliteConnection conexionBD, String OpcionElegida) {
+        /*String textoMenu = "Elija su opción: \n" +
                            "1. Crear Cliente \n" +
                            "2. Listar diez primeros clientes \n" +
                            "3. Listar productos comprados por cliente";
         String opcionElegida = JOptionPane.showInputDialog(null, textoMenu, "Menú principal", JOptionPane.QUESTION_MESSAGE);
-
+        */
         controladorCliente ctrlCliente = new controladorCliente();
 
-        switch (opcionElegida) {
+        switch (OpcionElegida) {
             case "1":
+                    VentanaNuevoCliente ventanaCliente = new VentanaNuevoCliente();
+                    ventanaCliente.setVisible(true);
                     String ident = JOptionPane.showInputDialog(null, "Ingrese la identificación del cliente", "LA TIENDA DE ROPA", JOptionPane.QUESTION_MESSAGE);
                     String nombre = JOptionPane.showInputDialog(null, "Ingrese el nombre del cliente", "LA TIENDA DE ROPA", JOptionPane.QUESTION_MESSAGE);
                     String apellido = JOptionPane.showInputDialog(null, "Ingrese el apellido del cliente", "LA TIENDA DE ROPA", JOptionPane.QUESTION_MESSAGE);
