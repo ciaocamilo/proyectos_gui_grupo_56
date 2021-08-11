@@ -13,6 +13,8 @@ public class App {
     
     public static void main(String arg[]){
         System.out.println("Hola a todos en Netbeans!!!");
+        VentanaPrincipal miVentana = new VentanaPrincipal();
+        miVentana.setVisible(true);
     }
 
 }
