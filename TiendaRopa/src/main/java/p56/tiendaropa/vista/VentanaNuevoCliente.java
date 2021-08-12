@@ -5,17 +5,24 @@
  */
 package p56.tiendaropa.vista;
 
+import p56.tiendaropa.conexion.SqliteConnection;
+import p56.tiendaropa.modelo.Cliente;
+import p56.tiendaropa.controlador.controladorCliente;
+
 /**
  *
  * @author Camilo A
  */
 public class VentanaNuevoCliente extends javax.swing.JFrame {
+    
+    private SqliteConnection conexionBD;
 
     /**
      * Creates new form VentanaNuevoCliente
      */
-    public VentanaNuevoCliente() {
+    public VentanaNuevoCliente(SqliteConnection conexionBD) {
         initComponents();
+        this.conexionBD = conexionBD;
     }
 
     /**
@@ -50,8 +57,18 @@ public class VentanaNuevoCliente extends javax.swing.JFrame {
         jLabel4.setText("Apellidos");
 
         btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,6 +134,22 @@ public class VentanaNuevoCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        String identificacion = txtIdentificacion.getText();
+        String nombres = txtNombres.getText();
+        String apellidos = txtApellidos.getText();
+        Cliente nuevoCliente = new Cliente(identificacion, nombres, apellidos);
+        controladorCliente ctrlCliente = new controladorCliente();
+        ctrlCliente.crearCliente(nuevoCliente, conexionBD);
+        txtIdentificacion.setText("");
+        txtNombres.setText("");
+        txtApellidos.setText("");
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

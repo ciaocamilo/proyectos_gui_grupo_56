@@ -1,5 +1,7 @@
 p56\tiendaropa\controlador\controladorCliente.class
 p56\tiendaropa\modelo\Cliente.class
+p56\tiendaropa\vista\VentanaNuevoCliente$1.class
+p56\tiendaropa\vista\VentanaNuevoCliente$2.class
 p56\tiendaropa\modelo\ClienteDAO.class
 p56\tiendaropa\conexion\SqliteConnection.class
 p56\tiendaropa\vista\VentanaNuevoCliente.class

@@ -21,11 +21,11 @@ public class VentanaMenu extends javax.swing.JFrame {
     public VentanaMenu(SqliteConnection conexionBD) {
         initComponents();
         this.conexionBD = conexionBD;
-        String textoMenu = "Elija su opción: \n" +
+        String textoMenu = "Elija su opción: \n\n" +
                            "1. Crear Cliente \n" +
                            "2. Listar diez primeros clientes \n" +
                            "3. Listar productos comprados por cliente";
-        txtMenu.setText(textoMenu);
+        tAreaMenu.setText(textoMenu);
     }
 
     /**
@@ -39,19 +39,16 @@ public class VentanaMenu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtMenu = new javax.swing.JLabel();
         txtOpcion = new javax.swing.JTextField();
         btnOpcion = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tAreaMenu = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LA TIENDA DE ROPA");
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setText("Bienvenido a La Tienda de Ropa");
-
-        txtMenu.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        txtMenu.setText("jLabel2");
-        txtMenu.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         btnOpcion.setText("Seleccionar");
         btnOpcion.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +57,15 @@ public class VentanaMenu extends javax.swing.JFrame {
             }
         });
 
+        tAreaMenu.setEditable(false);
+        tAreaMenu.setBackground(new java.awt.Color(240, 240, 240));
+        tAreaMenu.setColumns(20);
+        tAreaMenu.setLineWrap(true);
+        tAreaMenu.setRows(5);
+        tAreaMenu.setWrapStyleWord(true);
+        tAreaMenu.setBorder(null);
+        jScrollPane1.setViewportView(tAreaMenu);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -67,15 +73,15 @@ public class VentanaMenu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(txtOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64)
-                        .addComponent(btnOpcion)))
+                        .addComponent(btnOpcion))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,9 +89,9 @@ public class VentanaMenu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(34, 34, 34)
-                .addComponent(txtMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOpcion))
@@ -117,7 +123,8 @@ public class VentanaMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnOpcion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel txtMenu;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea tAreaMenu;
     private javax.swing.JTextField txtOpcion;
     // End of variables declaration//GEN-END:variables
 }

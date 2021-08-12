@@ -1,6 +1,7 @@
 package p56.tiendaropa.modelo;
 
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import p56.tiendaropa.conexion.SqliteConnection;
 
 public class ClienteDAO {
@@ -8,6 +9,7 @@ public class ClienteDAO {
     public void insertarCliente(Cliente nuevoCliente, SqliteConnection conexionBD) {
         String sentencia = "INSERT INTO Clientes (identificacion, nombres, apellidos) VALUES('" + nuevoCliente.getIdentificacion() + "', '"+ nuevoCliente.getNombres() + "', '" + nuevoCliente.getApellidos() + "')";
         conexionBD.ejecutarSentencia(sentencia);
+        JOptionPane.showMessageDialog(null, "El cliente fue ingresado satisfactoriamente", "Nuevo cliente", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public String mostrarClientes(SqliteConnection conexionBD) {
