@@ -1,5 +1,6 @@
 package p56.tiendaropa.vista;
 
+import java.util.ArrayList;
 import p56.tiendaropa.modelo.*;
 import javax.swing.JOptionPane;
 import p56.tiendaropa.conexion.SqliteConnection;
@@ -28,8 +29,14 @@ public class Menu {
                     ctrlCliente.crearCliente(nuevoCliente, conexionBD);*/
                     break;
             case "2":
+                    VentanaTablaCliente ventanaTabla1 = new VentanaTablaCliente();
+                    ventanaTabla1.setVisible(true);
+                    ArrayList<Cliente> clientes = ctrlCliente.listarClientes(conexionBD);
+                    ventanaTabla1.generarTabla(clientes);
+                    /*
                     String clientes = ctrlCliente.listarClientes(conexionBD);
                     JOptionPane.showMessageDialog(null, clientes, "Listado de clientes", JOptionPane.INFORMATION_MESSAGE);
+                    */
                     break;
             case "3":
                     String identCliente = JOptionPane.showInputDialog(null, "Ingrese la identificación del cliente a buscar:", "LA TIENDA DE ROPA", JOptionPane.QUESTION_MESSAGE);

@@ -1,5 +1,6 @@
 package p56.tiendaropa.controlador;
 
+import java.util.ArrayList;
 import p56.tiendaropa.conexion.SqliteConnection;
 import p56.tiendaropa.modelo.Cliente;
 import p56.tiendaropa.modelo.ClienteDAO;
@@ -11,9 +12,9 @@ public class controladorCliente {
         cli1.insertarCliente(nuevoCliente, conexionBD);
     }
 
-    public String listarClientes(SqliteConnection conexionBD) {
+    public ArrayList<Cliente> listarClientes(SqliteConnection conexionBD) {
         ClienteDAO cli1 = new ClienteDAO();
-        String clientes = cli1.mostrarClientes(conexionBD);
+        ArrayList<Cliente> clientes = cli1.mostrarClientes(conexionBD);
         return clientes;
     }
 
